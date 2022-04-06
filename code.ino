@@ -25,44 +25,42 @@ void setup() {
 void loop() {
 
   
-  int potValue = analogRead(A0); // Read potentiometer value
-  int pwmOutput = map(potValue, 0, 1023, 0 , 255); // Map the potentiometer value from 0 to 255
-  analogWrite(enA, 255); // Send PWM signal to L298N Enable pin
-  analogWrite(enB, 255); // Send PWM signal to L298N Enable pin
-  Serial.println("wtf is going on");
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
+  int potValue = analogRead(A0); // read from potentiometer 
+  int pwmOutput = map(potValue, 0, 1023, 0 , 255); // map the potentiometer value from 0 to 255
+  analogWrite(enA, 255); // send PWM signal to L298N Enable pin
+  analogWrite(enB, 255); // send PWM signal to L298N Enable pin
+//   digitalWrite(in1, LOW);
+//   digitalWrite(in2, HIGH);
   delay(20);
-  Serial.println("on and on");
   
 //  digitalWrite(in3, HIGH);
 //  digitalWrite(in4, LOW);
-//  if (digitalRead(T_center)) {
-//
-//     forward();
-//
-//     if (digitalRead(T_right)) {
-//        left();
-//     }
-//     if (digitalRead(T_left)) {
-//      right();
-//     }
-//
-//     if (digitalRead(T_right) && !digitalRead(T_left)) {
-//      stop();
-//     }
-//     
-//  } else if (digitalRead(T_right))
-//    {
-//      left();
-//    } else if (digitalRead(T_left)) {
-//      right();
-//    } else {
-//    stop();  
-//    }
-//    
-//  
-//  
+ if (digitalRead(T_center)) {
+
+    forward();
+
+    if (digitalRead(T_right)) {
+       left();
+    }
+    if (digitalRead(T_left)) {
+     right();
+    }
+
+    if (digitalRead(T_right) && !digitalRead(T_left)) {
+     stop();
+    }
+    
+ } else if (digitalRead(T_right))
+   {
+     left();
+   } else if (digitalRead(T_left)) {
+     right();
+   } else {
+   stop();  
+   }
+   
+ 
+ 
   
 
 }
